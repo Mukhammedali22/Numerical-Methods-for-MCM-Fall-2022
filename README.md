@@ -18,3 +18,5 @@ The methods are implemented using Python and C++.
 
 ## Goal
 The primary goal of this repository is to introduce you to these essential numerical methods, providing a solid foundation for further study and application in computational mathematics.
+
+Feel free to explore the code, experiment with the examples, and deepen your understanding of numerical methods!
