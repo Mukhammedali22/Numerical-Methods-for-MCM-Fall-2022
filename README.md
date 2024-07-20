@@ -13,5 +13,8 @@ Hello! I'm excited to share with you the knowledge and techniques I've learned i
 - **Lecture Materials**: Notes, slides, and additional resources from the lectures.
 - **Laboratory Works**: Practical assignments and projects to apply the concepts learned.
 
+## Programming languages
+The methods are implemented using Python and C++.
+
 ## Goal
 The primary goal of this repository is to introduce you to these essential numerical methods, providing a solid foundation for further study and application in computational mathematics.
