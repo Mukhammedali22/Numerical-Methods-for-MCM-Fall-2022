@@ -97,4 +97,5 @@ int main(){
     std::cin >> p0;
     double P = Fixed_point_iteration(a, b, p0);
     std::cout << "Solution x = " << P << "\n";
+    return 0;
 }
