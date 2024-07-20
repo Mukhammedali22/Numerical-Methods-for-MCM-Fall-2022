@@ -92,4 +92,5 @@ int main(){
     std::cout << "Solution x = " << P << "\n";
     P = Bisection_recursion(f, a, b);
     std::cout << "Solution x = " << P << "\n";
+    return 0;
 }
