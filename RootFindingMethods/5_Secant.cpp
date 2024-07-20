@@ -41,4 +41,5 @@ int main(){
     std::cin >> p1;
     double P = Secant_method(f, p0, p1);
     std::cout << "Solution x = " << P << "\n";
+    return 0;
 }
