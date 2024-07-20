@@ -37,4 +37,5 @@ int main(){
     std::cin >> p0;
     double P = Newton_Raphson_method(f, p0);
     std::cout << "Solution x = " << P << "\n";
+    return 0;
 }
