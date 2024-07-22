@@ -1,4 +1,4 @@
-# Jacobi iterative method
+# Gauss-Seidel iterative method
 # Look lecture 6
 
 # 4x - y + z = 7
@@ -14,11 +14,12 @@ def checkDiagonalDominant(A) -> bool:
     M = len(A[0])
 
     if N != M:
-        print("That is not quadratic matrix")
-        return 
+        print("A is not square")
+        return False
     
     maxval = [0 for i in range(N)]
     maxind = [0 for i in range(N)]
+
     for i in range(N):
         maxx = 0
         indx = 0
@@ -37,29 +38,30 @@ def checkDiagonalDominant(A) -> bool:
                 s += abs(A[i][j])
         
         # check for diagonal dominance 
-        if maxval[i] < s:
+        if maxval[i] <= s or sorted(maxind) != list(range(N)):
             return False
         
-    # check for diagonal dominance         
-    if sorted(maxind) != list(range(N)):
-        return False
-    
     return True
 
 
-def Jacobi_iterative_method(A, B, p0, eps=1e-9, stop_teration=1000):
-    if not checkDiagonalDominant(A):
-        print("It is not stricly diagonal dominant")
-        print("The method will diverges")
-        return
-    
+def Gauss_Seidel_iterative_method(A, B, p0, eps=1e-9, stop_teration=1000):    
+    N = len(A)
     p = [0 for i in range(N)]
+
     for n in range(stop_teration):
         for i in range(N):
-            a_s = A[i][:i] + A[i][i+1:]
-            p_s = p[:i] + p0[i+1:]
-            s = sum([-a_i * p_i for a_i, p_i in zip(a_s, p_s)])
-            p[i]  = (B[i] + s) / A[i][i]
+            # 1 way
+            # a_s = A[i][:i] + A[i][i+1:]
+            # p_s = p[:i] + p0[i+1:]
+            # s = sum([a_i * p_i for a_i, p_i in zip(a_s, p_s)])
+            
+            # 2 way
+            s = 0
+            for j in range(N):
+                if i != j:
+                    s += A[i][j] * (p[j] if j < i else p0[j])
+            
+            p[i] = (B[i] - s) / A[i][i]
         
         print(n, p)
 
@@ -89,7 +91,7 @@ p0[0:N] = list(map(float, input().split()))
 if not checkDiagonalDominant(A):
     print("Sorry, but this matrix can never be made to be diagonally dominant")
 else:
-    p = Jacobi_iterative_method(A, B, p0)
+    p = Gauss_Seidel_iterative_method(A, B, p0)
 
     print("A:")
     print("[", *A, "]", sep="\n")
