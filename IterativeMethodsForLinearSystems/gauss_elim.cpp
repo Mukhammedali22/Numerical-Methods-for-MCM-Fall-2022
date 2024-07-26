@@ -49,11 +49,6 @@ std::vector<double> Gaussian_Elimination(std::vector<std::vector<double>> &Aug) 
         return std::vector<double>();
     }
 
-    if (Aug[N-1][N-1] == 0) {
-        std::cout << "No solution";
-        return std::vector<double>();
-    }
-
     std::vector<double> temp(N+1, 0);
 
     for (int p = 0; p < N-1; ++p) {
