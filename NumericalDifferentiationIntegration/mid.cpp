@@ -14,7 +14,7 @@ double Midpoint(double (*f)(double x), double a,
     double x = a;
 
     double s = 0;
-    for (int i = 0; i < N; ++i) {
+    for (int i = 0; i < N-1; ++i) {
         x = a + i*dx;
         s += f(x + 0.5*dx) * dx;
     }
