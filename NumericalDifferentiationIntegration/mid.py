@@ -8,7 +8,7 @@ def Midpoint(f, a, b, N):
     dx = (b - a) / (N - 1)
 
     s = 0
-    for i in range(N):
+    for i in range(N-1):
         x = a + i*dx
         s += f(x + 0.5*dx) * dx
     
